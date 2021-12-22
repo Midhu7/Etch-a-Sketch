@@ -21,7 +21,7 @@ function hover(e){
     if(mode == 'singleColor')
         e.target.style.backgroundColor = color;
     else if(mode == 'eraser')
-        e.target.style.backgroundColor = '#ffffff';
+        e.target.style.backgroundColor = "#ffffff";
     else if(mode == 'multiColor'){
         const randomR = Math.floor(Math.random() * 256)
         const randomG = Math.floor(Math.random() * 256)
@@ -68,13 +68,16 @@ function eraser(){
 }
 
 let color='#008b8b';
+let colorPicker = document.querySelector('#colorPicker');
+colorPicker.value = color;
 let mode = 'singleColor';
 let n=16;
 
 createGrid(n);
 
+
 document.querySelector('#newGrid').addEventListener('click', newGrid);
-document.querySelector('#colorPicker').addEventListener('change', changeColor);
 document.querySelector('#multiColor').addEventListener('click', multiColor);
 document.querySelector('#singleColor').addEventListener('click', singleColor);
 document.querySelector('#eraser').addEventListener('click', eraser);
+colorPicker.addEventListener('change', changeColor);

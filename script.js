@@ -35,11 +35,16 @@ function clearGrid(){
 }
 
 function newGrid(e){
-    clearGrid();
-    let n = prompt('Enter the number of squares you need on one side: ');
+    let prev_n = n;
+    n = prompt('Enter the number of squares you need on one side: ');
+    if(!n){
+        n = prev_n;
+        return;
+    }
     while(n>=100){
         n = prompt('Enter a number under 100.');
     }
+    clearGrid();
     createGrid(n);
 }
 
